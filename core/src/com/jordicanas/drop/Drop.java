@@ -1,5 +1,38 @@
 package com.jordicanas.drop;
 
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+
+public class Drop extends Game {
+
+	public SpriteBatch batch;
+	public BitmapFont font;
+
+	public void create() {
+		batch = new SpriteBatch();
+		font = new BitmapFont(); // use libGDX's default Arial font
+		this.setScreen(new MainMenuScreen(this));
+	}
+
+	public void render() {
+		super.render(); // important!
+	}
+
+	public void dispose() {
+		batch.dispose();
+		font.dispose();
+	}
+
+}
+
+/*
+
+// YE OLDE PART ONE CLASS
+
+package com.jordicanas.drop;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -18,6 +51,7 @@ import com.badlogic.gdx.utils.TimeUtils;
 import java.util.Iterator;
 
 public class Drop extends ApplicationAdapter {
+
 	private Texture dropImage;
 	private Texture bucketImage;
 	private Sound dropSound;
@@ -140,4 +174,8 @@ public class Drop extends ApplicationAdapter {
 		batch.dispose();
 	}
 
+
+
+
 }
+*/
