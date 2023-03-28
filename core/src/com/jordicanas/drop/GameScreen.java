@@ -180,7 +180,7 @@ public class GameScreen implements Screen {
         dropSound.dispose();
         gameOverSound.dispose();
         rainMusic.dispose();
-        game.setScreen(new GameOverScreen(game));
+        game.setScreen(new GameOverScreen(game,dropsGathered));
     }
 
 }

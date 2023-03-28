@@ -8,11 +8,13 @@ import com.badlogic.gdx.utils.ScreenUtils;
 public class GameOverScreen implements Screen {
 
     final Drop game;
+    private int score;
 
     OrthographicCamera camera;
 
-    public GameOverScreen(final Drop game) {
+    public GameOverScreen(final Drop game, int score) {
         this.game = game;
+        this.score = score;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
     }
@@ -29,7 +31,8 @@ public class GameOverScreen implements Screen {
 
         game.batch.begin();
         game.font.draw(game.batch, " G A M E   O V E R ", 100, 150);
-        game.font.draw(game.batch, "Retry? Touch anywhere", 100, 100);
+        game.font.draw(game.batch, "Score: "+ score, 100, 100);
+        game.font.draw(game.batch, "Retry? Touch anywhere", 100, 50);
         game.batch.end();
 
         if (Gdx.input.isTouched()) {
