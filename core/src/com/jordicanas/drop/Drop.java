@@ -38,12 +38,12 @@ public class Drop extends ApplicationAdapter {
 		bucketImage = new Texture(Gdx.files.internal("bucket.png"));
 
 		// load the drop sound effect and the rain background "music"
-		//dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
-		//rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
+		dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
+		rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
 
 		// start the playback of the background music immediately
-		//rainMusic.setLooping(true);
-		//rainMusic.play();
+		rainMusic.setLooping(true);
+		rainMusic.play();
 
 		// Camera
 		camera = new OrthographicCamera();
@@ -102,7 +102,7 @@ public class Drop extends ApplicationAdapter {
 			if(raindrop.y + 64 < 0) iter.remove();
 			// Raindrop touches bucket
 			if(raindrop.overlaps(bucket)) {
-				//dropSound.play();
+				dropSound.play();
 				iter.remove();
 			}
 		}
